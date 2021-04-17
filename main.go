@@ -27,7 +27,10 @@ func main() {
 	}
 
 	mux := http.NewServeMux()
-
 	mux.HandleFunc("/", indexHandler)
+
+	fs := http.FileServer(http.Dir("assets"))
+	mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
+
 	http.ListenAndServe(":"+port, mux)
 }
