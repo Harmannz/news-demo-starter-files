@@ -25,3 +25,15 @@ $ git clone https://github.com/Freshman-tech/news-demo-starter-files
 ```
 
 - `cd` into the project directory and follow along with the [tutorial](https://freshman.tech/web-development-with-go/).
+
+
+## Running demo site
+
+Build and run the executable
+```bash
+go build && ./news-demo-starter-files.exe
+```
+
+or with hot-reloading run ```fresh```
+
+then visit http://localhost:3000
