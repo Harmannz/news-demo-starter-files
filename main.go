@@ -34,8 +34,13 @@ func searchHandler(newsapi *news.Client) http.HandlerFunc {
 			page = "1"
 		}
 
-		fmt.Println("Search Query is: ", searchQuery)
-		fmt.Println("Page is: ", page)
+		results, err := newsapi.FetchEverything(searchQuery, page)
+		if err != nil {
+			http.Error(responseWriter, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		fmt.Printf("%+v", results)
 	}
 }
 
